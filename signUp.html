@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
 </head>
+
 <body>
-    
+    <main>
+        <div>
+            <h1>Create Account</h1>
+            <form id="signUp">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="pass">Password:</label>
+                    <input type="password" id="pass" name="pass" required>
+                </div>
+                <div>
+                    <label for="conPass">Confirm Password:</label>
+                    <input type="password" id="conPass" name="conPass" required>
+                </div>
+                <div>
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+            <p>
+                Already have an account? <a href="./signIn.html">Sign In</a>
+            </p>
+        </div>
+    </main>
 </body>
+
 </html>
