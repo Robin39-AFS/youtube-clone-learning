@@ -1,14 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu,search,notifications,account_circle,home,subscriptions,video_library,history" />
+
 </head>
 
 <body>
+    <div class="min-h-screen bg-zinc-950 text-white font-sans antialiased">
 
+        <!-- Sticky Navbar -->
+        <header class="sticky top-0 z-50 flex h-14 items-center justify-between bg-zinc-900 px-4">
+            <!-- Left: menu + brand -->
+            <div class="flex items-center gap-4">
+                <button class="p-2 hover:bg-zinc-800 rounded-full" id="sidebar-toggle">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="flex items-center font-bold text-xl">
+                    <img src="./assets/images/youtube-logo.webp" alt="YouTube" class="h-10 mr-2" /> Youtube
+                    <sup>BD</sup>
+                </div>
+            </div>
+
+            <!-- Center: search -->
+            <div class="flex-1 flex justify-center">
+                <div class="w-full max-w-[600px] px-4">
+                    <div class="flex w-full overflow-hidden rounded-full border border-zinc-700 bg-zinc-800">
+                        <input type="text" id="search-input" placeholder="Search"
+                            class="w-full bg-zinc-800 px-4 py-2 text-sm focus:outline-none" />
+                        <button class="bg-zinc-800 px-6 hover:bg-zinc-700 transition">
+                            <span class="material-symbols-outlined text-sm">search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: notifications + sign in -->
+            <div class="flex items-center gap-4">
+                <button class="p-2 hover:bg-zinc-800 rounded-full transition">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <a href="signIn.html" title="Sign in" class="p-2 hover:bg-zinc-800 rounded-full transition inline-flex">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside id="sidebar"
+                class="w-64 bg-zinc-900 border-r border-zinc-800 fixed left-0 top-14 bottom-0 overflow-y-auto transition-transform duration-300">
+                <nav class="p-4 space-y-1">
+                    <a href="#" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-zinc-800 transition">
+                        <span class="material-symbols-outlined">
+                            home
+                        </span>
+                        <span>Home</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-zinc-800 transition">
+                        <img src="./assets/icons/youtube-shorts-brands-solid.png" class="h-6" alt="">
+                        <span>Shorts</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-zinc-800 transition">
+                        <span class="material-symbols-outlined">
+                            subscriptions
+                        </span>
+                        <span>Subscriptions</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-zinc-800 transition">
+                        <span class="material-symbols-outlined">
+                            video_library
+                        </span>
+                        <span>Library</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-zinc-800 transition">
+                        <span class="material-symbols-outlined">
+                            history
+                        </span>
+                        <span>History</span>
+                    </a>
+                </nav>
+
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 ml-64 pt-6 px-6">
+                <!-- Category Filter -->
+                <div class="flex gap-2 mb-8 overflow-x-auto pb-2 scroll-hide">
+                    <button
+                        class="category-btn px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full whitespace-nowrap transition"
+                        data-category="all">All</button>
+                    <button
+                        class="category-btn px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full whitespace-nowrap transition"
+                        data-category="music">Music</button>
+                    <button
+                        class="category-btn px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full whitespace-nowrap transition"
+                        data-category="gaming">Gaming</button>
+                    <button
+                        class="category-btn px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full whitespace-nowrap transition"
+                        data-category="news">News</button>
+                    <button
+                        class="category-btn px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-full whitespace-nowrap transition"
+                        data-category="tech">Tech</button>
+
+                </div>
+
+                <!-- Featured Video -->
+                <section id="featured" class="mb-12 rounded-2xl overflow-hidden bg-zinc-800">
+                    <div class="aspect-video bg-zinc-700"></div>
+                    <div class="p-4">
+                        <h2 id="featured-title" class="text-2xl font-bold mb-2">Featured Video</h2>
+                        <p id="featured-desc" class="text-zinc-400 text-sm">Loading featured content...</p>
+                    </div>
+
+                </section>
+                <!-- video Grid -->
+                <section>
+                    <h2 class="text-2xl font-bold mb-6">Recommended for You</h2>
+                    <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <!-- Video items will be dynamically inserted here -->
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <script src="./js/videos.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
