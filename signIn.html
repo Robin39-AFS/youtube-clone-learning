@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign In</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    
+
+<body class="min-h-screen bg-slate-950 text-white">
+    <main class="relative min-h-screen flex items-center justify-center px-4 py-10 overflow-hidden">
+        <div class="absolute top-[-100px] left-[-100px] w-72 h-72 bg-red-600/20 rounded-full blur-3xl">
+        </div>
+
+        <div class="absolute bottom-[-100px] right-[-100px] w-72 h-72 bg-blue-600/20 rounded-full blur-3xl">
+        </div>
+
+        <div class="relative w-full max-w-md bg-white/5 border border-white/10 rounded-3xl p-8">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold">Sign In</h1>
+                <p class="text-slate-400 mt-2 text-sm">Sign in to entertain...</p>
+            </div>
+
+            <form id="signIn" class="space-y-5">
+                <div>
+                    <label for="email" class="block text-slate-300 mb-2 ">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email"
+                        class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-white outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20">
+                </div>
+                <div>
+                    <label for="pass" class="block text-slate-300 mb-2 ">Password:</label>
+                    <input type="password" id="pass" name="pass" required placeholder="Enter the password"
+                        class="w-full rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-white outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20">
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="w-full rounded-xl bg-red-600 py-3 font-semibold text-white hover:bg-red-500 cursor-pointer">Sign
+                        In
+                    </button>
+                </div>
+            </form>
+            <p class="text-center text-sm text-slate-400 mt-6">
+                Don't have an account...? <a href="./signUp.html"
+                    class="font-semibold text-red-500 hover:text-red-400">Register</a>
+            </p>
+        </div>
+    </main>
 </body>
+
 </html>
