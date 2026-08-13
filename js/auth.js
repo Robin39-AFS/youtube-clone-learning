@@ -65,6 +65,50 @@ if (signInForm) {
     localStorage.setItem("logged", JSON.stringify(logged));
     alert("Sign in Success");
 
-    window.location.href = "./auth-test.html";
+    window.location.href = "./index.html";
   });
+}
+
+// Check Sign in Sign up
+
+const authArea = document.getElementById("auth-area");
+
+if (authArea) {
+  const loggedUser = JSON.parse(localStorage.getItem("logged"));
+
+  if (loggedUser) {
+    authArea.innerHTML = `
+      <span class="text-sm font-medium">
+        ${loggedUser.name}
+      </span>
+
+      <button
+        id="logout-btn"
+        class="bg-zinc-700 hover:bg-zinc-600 px-4 py-2 rounded-full text-sm font-medium transition cursor-pointer"
+      >
+        Logout
+      </button>
+    `;
+
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.removeItem("logged");
+      window.location.reload();
+    });
+  } else {
+    authArea.innerHTML = `
+      <a
+        href="./signIn.html"
+        class="text-sm font-medium hover:text-red-500 transition"
+      >
+        Sign In
+      </a>
+
+      <a
+        href="./signUp.html"
+        class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded-full text-sm font-medium transition"
+      >
+        Sign Up
+      </a>
+    `;
+  }
 }
